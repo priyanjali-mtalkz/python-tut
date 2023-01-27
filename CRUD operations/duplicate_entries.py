@@ -35,7 +35,7 @@ x = collection.find()
 # for i in x:
 #     print(i['name'])
 
-if (x[0] == name):
+if (x[0].name == name):
     print("Data already exists")
 else:
     collection.insert_many(arr)
