@@ -29,15 +29,18 @@ for i in range(n):
     arr.append(mydata)
     mydata = {}
 
+x = db.collection.find().toArray()
 
-x = []
-x = collection.find()
-# for i in x:
-#     print(i['name'])
-
-if (x[0].name == name):
+if(len(x) > 0):
     print("Data already exists")
 else:
     collection.insert_many(arr)
+
+
+
+# for i in x:
+#     print(i['name'])
+
+
 
 
