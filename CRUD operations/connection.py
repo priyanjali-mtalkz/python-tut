@@ -35,7 +35,7 @@ value = {'$set': {'Project' : 'Webpage'}}
 collection.update_one(query,value)
 
 for ele in collection.find():
-    print(ele)
+    print(ele['Name'])
  
 #x=collection.delete_many({})  #To delete all the elements in the collection
 #print(x.deleted_count,'Documents deleted')
