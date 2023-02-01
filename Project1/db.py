@@ -248,6 +248,7 @@ def game_begins():
         if(user_answer == "HINT"):
             print("----------------")
             print("     HINT!!      ")
+            print("----------------")
             print(questions['hint'])
             user_answer = input("Choose an Option : (A B C or D)").upper()
         user_answers.append(user_answer)
@@ -258,23 +259,22 @@ def game_begins():
 
         print("----------------")
 
-    guess += check_answers(questions['answer'],user_answer)
-        
-    question_num+=1
+        guess += check_answers(questions['answer'],user_answer)
+        question_num+=1
   
 
 def check_answers(correct_ans,user_ans):
     if(correct_ans == user_ans):
-        
+
         print("  CORRECT!!  ")
         print("----------------")
         return 1
     else:
-        
         print("  INCORRECT!!  ")
         print("----------------")
         return 0
 
+        
 def score(g):
     x = ((g/5)*100)
     return x
