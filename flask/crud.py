@@ -1,4 +1,9 @@
-from flask import Flask,jsonify,request
+from urllib import request
+from flask import Flask
+from flask import *
+from flask import json
+
+
 
 app = Flask(__name__)
 
@@ -35,15 +40,17 @@ questions = [
             }
         ]
 @app.route('/questions/add',methods = ['GET','POST'])
-
 def question():
-    if(request.method == 'GET'):
-        return jsonify(questions)
-    else:
-        request_data = request.get_json()
-        new_ques = {"ques":request_data["ques"], "answer" : [], "options":[], "hint" : request_data["hint"], "explanation" : request_data["explanation"]}
-        questions.append(new_ques)
-        return new_ques, 201
+    try:
+        if request.method == 'GET' :
+            return jsonify(questions)
+        else:
+            request_data = request.get_json()
+            new_ques = {"ques":request_data["ques"], "answer" : [], "options":[], "hint" : request_data["hint"], "explanation" : request_data["explanation"]}
+            questions.append(new_ques)
+            return new_ques, 201
+    except Exception as e:
+        print(e)
 
 @app.route('/questions/add/<string:question>/options',methods=['POST'])
 def create_answer(question):

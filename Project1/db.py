@@ -75,7 +75,6 @@ ques =[{
 #x = collection3.insert_many(ques)
 
 #x=collection3.delete_many({})
-
 collection1 = db['EasyQuestions']
 
 easy_ques = [{
