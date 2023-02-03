@@ -28,7 +28,6 @@ def getData():
         for x in data:
             x['_id'] = str(x['_id'])
             arr.append(x) 
-
         return json.dumps(arr, indent = 4, default= json_util.default)
 
     except Exception as e:
