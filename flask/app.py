@@ -1,6 +1,10 @@
+from bson import json_util
+import json
 from flask import Flask, jsonify, request
+
 from class1 import Subject
 import pymongo
+
 
 app = Flask(__name__)
 
@@ -17,7 +21,9 @@ def home():
             client.close()
             return jsonify({"status":"Connection Succesfull"}) , 200
         else:
-            return {'name':'priyanjali'}, 301
+            for ques in coll.find():
+                return json.dumps(ques, indent = 4, default = json_util.default)
+        
 
     except Exception as e:
         print("error ::::::::",e)
